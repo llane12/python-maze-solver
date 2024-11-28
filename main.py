@@ -1,5 +1,5 @@
 from graphics import *
-from maze import *
+from cell import *
 
 def main():
     win = Window(800, 600)
