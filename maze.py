@@ -11,6 +11,7 @@ class Maze:
         self._cell_height = cell_height
         self._cells = []
         self._create_cells(num_rows, num_cols)
+        self._break_entrance_and_exit()
 
     def _create_cells(self, num_rows, num_cols):
         self._cells = [ [None]*num_cols for _ in range(num_rows)]
@@ -18,6 +19,10 @@ class Maze:
             for col in range(num_cols):
                 cell = self._make_cell(row, col)
                 self._cells[row][col] = cell
+
+    def _break_entrance_and_exit(self):
+        self._cells[0][0].has_top_wall = False
+        self._cells[-1][-1].has_bottom_wall = False
 
     def draw_cells(self, window):
         for row in self._cells:
