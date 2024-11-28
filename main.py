@@ -11,10 +11,12 @@ def main():
     cell_height = (screen_height - (2 * margin)) / num_rows
     window = Window(screen_width, screen_height)
 
-    maze = Maze(margin, margin, num_rows, num_cols, cell_width, cell_height, seed=0)
+    maze = Maze(margin, margin, num_rows, num_cols, cell_width, cell_height)
     maze.draw_cells(window)
 
     maze.break_walls(window)
+
+    maze.solve(window)
     
     window.wait_for_close()
 
