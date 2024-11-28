@@ -91,5 +91,22 @@ class MazeTests(unittest.TestCase):
             self.assertTrue(maze._cells[2][2].has_right_wall)
             self.assertFalse(maze._cells[2][2].has_bottom_wall)
 
+    def test_after_creation_cells_visited_false(self):
+        num_rows = 3
+        num_cols = 3
+        maze = Maze(0, 0, num_rows, num_cols, 10, 10, seed=0)
+        for row in maze._cells:
+            for cell in row:
+                self.assertFalse(cell.visited)
+
+    def test_after_break_walls_cells_visited_reset(self):
+        num_rows = 3
+        num_cols = 3
+        maze = Maze(0, 0, num_rows, num_cols, 10, 10, seed=0)
+        maze.break_walls()
+        for row in maze._cells:
+            for cell in row:
+                self.assertFalse(cell.visited)
+
 if __name__ == "__main__":
     unittest.main()

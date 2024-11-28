@@ -45,6 +45,7 @@ class Maze:
 
     def break_walls(self, window=None):
         self._break_walls_r(0, 0, window)
+        self._reset_cells_visited()
 
     def _break_walls_r(self, row, col, window):
         cur = self._cells[row][col]
@@ -90,3 +91,8 @@ class Maze:
                     self._animate(window)
 
                 self._break_walls_r(row2, col2, window)
+
+    def _reset_cells_visited(self):
+        for row in self._cells:
+            for cell in row:
+                cell.visited = False
