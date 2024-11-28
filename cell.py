@@ -9,6 +9,7 @@ class Cell:
         self.has_bottom_wall = has_bottom_wall
         self.p1 = p1
         self.p2 = p2
+        self.visited = False
 
     def draw(self, window, line_color="black"):
         window.draw_line(Line(Point(self.p1.x, self.p1.y), Point(self.p1.x, self.p2.y)), line_color if self.has_left_wall else background_color)
